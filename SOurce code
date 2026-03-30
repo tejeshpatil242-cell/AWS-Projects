@@ -1,0 +1,30 @@
+{
+    "Type": "AWS::CloudWatch::Alarm",
+    "Properties": {
+        "AlarmName": "HCMonitor Server CPU under Utilization Alarm",
+        "AlarmDescription": "This is an Alarm set to your server. Your Server CPU Utilization is under performing and goes below 3 % of set parameter value. No action needs to take on this alarm as the CPU working fine and no problem detected in the server.\nThank You!",
+        "Tags": [],
+        "ActionsEnabled": true,
+        "OKActions": [],
+        "AlarmActions": [
+            "arn:aws:sns:us-east-1:753968716202:HCMonitor_Server_Alarm_CPU_Utilization"
+        ],
+        "InsufficientDataActions": [],
+        "MetricName": "CPUUtilization",
+        "Namespace": "AWS/EC2",
+        "Statistic": "Average",
+        "Dimensions": [
+            {
+                "Name": "InstanceId",
+                "Value": "i-0e89ac8a98f704e09"
+            }
+        ],
+        "Period": 300,
+        "EvaluationPeriods": 1,
+        "DatapointsToAlarm": 1,
+        "Threshold": 3,
+        "ComparisonOperator": "LessThanThreshold",
+        "TreatMissingData": "missing"
+    }
+}
+
